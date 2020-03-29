@@ -19,6 +19,10 @@ public class Annonce {
     private Date datePublication;
 
     @ManyToOne
+    @JoinColumn(name = "CATEGORY_ID")
+    private Categorie categorie;
+
+    @ManyToOne
     @JoinColumn(name = "VENDEUR_FK")
     private UserInfo vendeur;
 
@@ -72,6 +76,14 @@ public class Annonce {
 
     public void setVendeur(UserInfo vendeur) {
         this.vendeur = vendeur;
+    }
+
+    public Categorie getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(Categorie categorie) {
+        this.categorie = categorie;
     }
 
 

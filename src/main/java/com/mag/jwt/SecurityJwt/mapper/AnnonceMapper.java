@@ -1,6 +1,7 @@
 package com.mag.jwt.SecurityJwt.mapper;
 
 import com.mag.jwt.SecurityJwt.dto.AnnonceDTO;
+import com.mag.jwt.SecurityJwt.dto.CategorieDTO;
 import com.mag.jwt.SecurityJwt.model.Annonce;
 
 public class AnnonceMapper {
@@ -14,6 +15,7 @@ public class AnnonceMapper {
             annonceDTO.setPrix(annonce.getPrix());
             annonceDTO.setVendeur(UserMapper.map(annonce.getVendeur()));
             annonceDTO.setVente(VenteMapper.map(annonce.getVente()));
+            annonceDTO.setCategorie(CategorieMapper.map(annonce.getCategorie()));
             return annonceDTO;
         }
         return null;

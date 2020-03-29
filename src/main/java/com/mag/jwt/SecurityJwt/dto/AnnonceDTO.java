@@ -5,6 +5,16 @@ import java.util.Date;
 
 public class AnnonceDTO {
 
+    private CategorieDTO categorie;
+
+    public CategorieDTO getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(CategorieDTO categorie) {
+        this.categorie = categorie;
+    }
+
     public Long getId() {
         return id;
     }
