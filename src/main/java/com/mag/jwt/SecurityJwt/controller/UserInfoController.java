@@ -2,7 +2,6 @@ package com.mag.jwt.SecurityJwt.controller;
 
 import com.mag.jwt.SecurityJwt.model.UserInfo;
 import com.mag.jwt.SecurityJwt.repository.UserInfoRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.ValidationException;
 import java.security.NoSuchAlgorithmException;
-import java.util.Map;
 
 @RestController
 public class UserInfoController {
