@@ -3,6 +3,7 @@ package com.mag.jwt.SecurityJwt.model;
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "ANNONCE")
@@ -17,6 +18,17 @@ public class Annonce {
     private BigDecimal prix;
     @Column(name = "DATE_PUBLICATION")
     private Date datePublication;
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    private String description;
+
 
     @ManyToOne
     @JoinColumn(name = "CATEGORY_ID")
