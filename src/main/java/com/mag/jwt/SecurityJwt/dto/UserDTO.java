@@ -2,7 +2,7 @@ package com.mag.jwt.SecurityJwt.dto;
 
 public class UserDTO {
 
-    private int id;
+    private Long id;
     private String username;
     private String password;
     private String fullname;
@@ -10,11 +10,11 @@ public class UserDTO {
     private String email;
     private AdresseDTO adresse;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

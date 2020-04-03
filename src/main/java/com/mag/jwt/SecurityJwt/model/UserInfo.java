@@ -9,7 +9,9 @@ public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
+
+
 
     @Column(name = "USERNAME")
     private String username;
@@ -46,13 +48,6 @@ public class UserInfo {
         this.email = email;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getUsername() {
         return username;
@@ -82,6 +77,13 @@ public class UserInfo {
 
     public void setFullname(String fullname) {
         this.fullname = fullname;
+    }
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Adresse getAdresse() {

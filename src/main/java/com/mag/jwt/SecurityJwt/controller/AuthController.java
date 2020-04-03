@@ -3,6 +3,8 @@ package com.mag.jwt.SecurityJwt.controller;
 import com.mag.jwt.SecurityJwt.config.JwtToken;
 import com.mag.jwt.SecurityJwt.model.JwtRequest;
 import com.mag.jwt.SecurityJwt.model.JwtResponse;
+import com.mag.jwt.SecurityJwt.model.UserInfo;
+import com.mag.jwt.SecurityJwt.repository.UserInfoRepository;
 import com.mag.jwt.SecurityJwt.service.JwtUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +23,9 @@ public class AuthController {
     private AuthenticationManager authenticationManager;
 
     @Autowired
+    private UserInfoRepository userInfoRepository;
+
+    @Autowired
     private JwtToken jwtToken;
 
     @Autowired
@@ -31,7 +36,9 @@ public class AuthController {
         authenticate(request.getUsername(), request.getPassword());
         UserDetails userDetails = jwtUserDetailService.loadUserByUsername(request.getUsername());
         final String token = jwtToken.generateToken(userDetails);
-        return ResponseEntity.ok(new JwtResponse(token));
+        UserInfo user = userInfoRepository.findByUsername(request.getUsername());
+
+        return ResponseEntity.ok(new JwtResponse(token, user.getId(), user.getUsername()));
     }
 
     private void authenticate(String username, String password) throws Exception {

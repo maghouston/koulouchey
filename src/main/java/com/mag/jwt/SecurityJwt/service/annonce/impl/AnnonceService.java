@@ -26,6 +26,7 @@ public class AnnonceService implements IAnnonceService {
 
     @Override
     public Long createAnnonce(Annonce annonce) {
+        annonce.setDatePublication(new Date());
         return annonceRepository.save(annonce).getId();
     }
 
